@@ -36,10 +36,19 @@ The API endpoint is configured via environment variables.
 
 ### Production Deployment (Render)
 
-When deploying to Render, set the following environment variable in your Render dashboard:
+When deploying to Render:
 
-- **Variable Name:** `NEXT_PUBLIC_API_BASE_URL`
-- **Value:** Your deployed backend API URL (e.g., `https://your-api.onrender.com/api/tasks`)
+1. **Service Type:** Deploy as a **Web Service** (not a Static Site), since this is a Next.js application with dynamic routes.
 
-**Note:** In Next.js, environment variables prefixed with `NEXT_PUBLIC_` are exposed to the browser, which is required for client-side API calls.
+2. **Build Command:** `npm install && npm run build`
+
+3. **Start Command:** `npm start`
+
+4. **Environment Variables:** Set the following environment variable in your Render dashboard:
+   - **Variable Name:** `NEXT_PUBLIC_API_BASE_URL`
+   - **Value:** Your deployed backend API URL (e.g., `https://your-api.onrender.com/api/tasks`)
+
+**Note:** 
+- In Next.js, environment variables prefixed with `NEXT_PUBLIC_` are exposed to the browser, which is required for client-side API calls.
+- This application uses dynamic routes (`/tasks/[id]/edit`), so it must be deployed as a Node.js web service, not as a static site.
 
