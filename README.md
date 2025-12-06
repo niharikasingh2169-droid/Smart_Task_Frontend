@@ -4,10 +4,7 @@ A Next.js application for managing tasks with Material-UI.
 
 ## Demo
 
-<video width="100%" controls>
-  <source src="https://github.com/niharikasingh2169-droid/Smart_Task_Frontend/raw/main/assets/demo.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+![Demo](https://github.com/niharikasingh2169-droid/Smart_Task_Frontend/raw/main/assets/demo.gif)
 
 ## Getting Started
 
