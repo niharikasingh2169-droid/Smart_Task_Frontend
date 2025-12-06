@@ -389,6 +389,30 @@ const TaskForm: React.FC<TaskFormProps> = ({
             </FormControl>
           </Grid>
 
+          <Grid item xs={12}>
+            <Box sx={{ display: 'flex', gap: 2, justifyContent: 'flex-end' }}>
+              {showDeleteButton && onDelete && (
+                <Button
+                  variant="contained"
+                  color="error"
+                  onClick={handleDelete}
+                  disabled={isDeleting || isSubmitting}
+                >
+                  {isDeleting ? 'Deleting...' : 'Delete'}
+                </Button>
+              )}
+              <Button
+                type="submit"
+                variant="contained"
+                color="primary"
+                disabled={isSubmitting || isDeleting || !isFormValid()}
+                sx={{ minWidth: 120 }}
+              >
+                {isSubmitting ? 'Submitting...' : submitButtonText}
+              </Button>
+            </Box>
+          </Grid>
+
           {/* AI Priority Section - Only show in edit mode */}
           {task && (
             <>
@@ -483,30 +507,6 @@ const TaskForm: React.FC<TaskFormProps> = ({
               </Grid>
             </>
           )}
-
-          <Grid item xs={12}>
-            <Box sx={{ display: 'flex', gap: 2, justifyContent: 'flex-end' }}>
-              {showDeleteButton && onDelete && (
-                <Button
-                  variant="contained"
-                  color="error"
-                  onClick={handleDelete}
-                  disabled={isDeleting || isSubmitting}
-                >
-                  {isDeleting ? 'Deleting...' : 'Delete'}
-                </Button>
-              )}
-              <Button
-                type="submit"
-                variant="contained"
-                color="primary"
-                disabled={isSubmitting || isDeleting || !isFormValid()}
-                sx={{ minWidth: 120 }}
-              >
-                {isSubmitting ? 'Submitting...' : submitButtonText}
-              </Button>
-            </Box>
-          </Grid>
         </Grid>
       </Box>
     </LocalizationProvider>
